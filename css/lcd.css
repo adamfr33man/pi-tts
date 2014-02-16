@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'mono-display';
+    /*a name to be used later*/
+    src: url('ecran-monochrome-display.ttf');
+    /*URL to font*/
+}
+
+.frame {
+    padding: 15px 15px;
+    background-color: #444;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 2px #EEE, inset -2px -2px 5px #777;
+}
+.screen {
+    padding: 5px 25px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px #333, inset -2px -2px 5px #999;
+    background: #0000cd;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #0000cd 2%, #2850f0 26%, #1428dc 52%, #2850f0 76%, #0000cd 98%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(2%, #0000cd), color-stop(26%, #2850f0), color-stop(52%, #1428dc), color-stop(76%, #2850f0), color-stop(98%, #0000cd));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #0000cd 2%, #2850f0 26%, #1428dc 52%, #2850f0 76%, #0000cd 98%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #0000cd 2%, #2850f0 26%, #1428dc 52%, #2850f0 76%, #0000cd 98%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #0000cd 2%, #2850f0 26%, #1428dc 52%, #2850f0 76%, #0000cd 98%);
+    /* IE10+ */
+    background: linear-gradient(to right, #0000cd 2%, #2850f0 26%, #1428dc 52%, #2850f0 76%, #0000cd 98%);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0000cd', endColorstr='#0000cd', GradientType=1);
+    /* IE6-9 */
+}
+.lcdLines {
+    font-family: 'mono-display';
+    font-size: 33px;
+    width: 400px;
+    color: gainsboro;
+}
+.lcdLines p {
+    margin: 0px;
+}
