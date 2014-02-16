@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Pi Speaks !</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="description" content="In interface for controlling the PI's TTS">
+    <meta name="author" content="Adam Freeman">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <style>
+        body {
+        		padding:5px;
+        	}
+
+        	#logo {
+        		background-image: url('http://www.raspberrypi.org/wp-content/themes/raspite/img/sprite.png');
+        		height: 50px;
+        		width: 200px;
+        		background	-repeat: no-repeat;
+        		margin-bottom: 20px;
+        	}
+        	
+        	#reload.reloading {
+        	   -webkit-animation-name:             rotate; 
+                -webkit-animation-duration:         1.5s; 
+                -webkit-animation-iteration-count:  infinite;
+                -webkit-animation-timing-function: linear;
+        	}
+    </style>
+</head>
+
+<body class="container">
+    <div class="row">
+        <div id="logo" class="pull-left"></div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default btn-med" id="reload">
+                <span class="glyphicon glyphicon-repeat"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <input type="text" class="form-control" placeholder="Message" id="msg" />
+        </div>
+
+        <div class="col-xs-8">
+            <button type="button" class="btn btn-default btn-med" id="speak">Speak</button>
+            <button type="clear" class="btn btn-default btn-med" id="clear">Clear</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Presets</h2>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-default btn-lg preset" data-message="yes">Yes</button>
+            <button class="btn btn-default btn-lg preset" data-message="no">No</button>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $("#speak").on("click", function() {
+            speak($("#msg").val);
+        });
+
+        $("#clear").on("click", function() {
+            $("#msg").val("");
+        });
+
+        $("#reload").on("click", function() {
+            reload();
+        });
+
+        $(".preset").on("click", function() {
+            var msg = $(this).data("message");
+            speak(msg);
+
+        });
+
+        $("#msg").on("keypress", function(e) {
+            if (e.which == 13) {
+                speak($("#msg").val());
+            }
+        });
+
+        function speak(msg) {
+            $.ajax({
+                url: "/speak?msg=" + msg,
+            }).done(function(data) {
+                //$( this ).addClass( "done" );
+                console.log();
+            });
+            // Clear the text box
+            $("#msg").val("");
+        }
+
+        function reload() {
+            $("#reload").addClass("reloading");
+            $.ajax({
+                url: "/reload",
+            }).done(function(data) {
+                console.log(data);
+                window.location.reload();
+            });
+        }
+    </script>
+</body>
+
+</html>
