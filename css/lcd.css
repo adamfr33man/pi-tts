@@ -35,11 +35,33 @@
     /* IE6-9 */
 }
 .lcdLines {
-    font-family: 'mono-display';
-    font-size: 33px;
     width: 400px;
     color: gainsboro;
 }
-.lcdLines p {
+.lcdLines p, .lcdLines input {
     margin: 0px;
+    font-family: 'mono-display';
+    font-size: 33px;
+    color: gainsboro;
+    background:none;
+    border: none;
+    display: block;
+}
+
+.small .lcdLines input {
+    font-size: 13px;
+}
+
+.small .lcdLines {
+    width: 200px;
+}
+
+.small .screen {
+    padding: 5px 25px;
+    width: 200px;
+}
+
+.small.frame {
+    padding: 5px;
+    width: 250px;
 }

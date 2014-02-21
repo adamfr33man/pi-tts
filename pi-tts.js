@@ -35,6 +35,8 @@ http.createServer(function (req, res) {
                 });
             });
         }
+    } else if(url.parse(req.url, true).pathname === "/display") {
+        
     } else if (url.parse(req.url, true).pathname === "/reload") {
         document = fs.readFileSync(__dirname + '/pi-tts.html');
         res.write("reload");

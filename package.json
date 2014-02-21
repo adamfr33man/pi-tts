@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/adamfr33man/pi-tts/issues"
   },
-  "homepage": "https://github.com/adamfr33man/pi-tts"
+  "homepage": "https://github.com/adamfr33man/pi-tts",
+  "devDependencies": {
+    "flite": "~0.1.2"
+  }
 }

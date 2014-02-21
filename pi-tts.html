@@ -92,10 +92,10 @@
 
         function speak(msg) {
             $.ajax({
-                url: "/speak?msg=" + msg,
+                url: "/speak?device=tts&msg=" + msg,
             }).done(function(data) {
                 //$( this ).addClass( "done" );
-                console.log();
+                console.log();d
             });
             // Clear the text box
             $("#msg").val("");
